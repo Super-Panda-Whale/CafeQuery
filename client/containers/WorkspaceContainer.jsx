@@ -8,7 +8,6 @@ const WorkspaceContainer = (props) => {
   const locationArray = []; 
   for (let i = 0; i < workspaces.length; i++){
     //pass in response body into as props to display spaces
-    console.log('workspaces: ', workspaces[i])
     locationArray.push(<Workspace resultObject={workspaces[i]} key={`workspace${i}`} />);
   }
   //render search bar for zip code search and then resuls of the zip code search

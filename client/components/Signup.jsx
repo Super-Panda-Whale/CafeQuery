@@ -16,7 +16,7 @@ const Signup = () => {
     };
     // request to server
     axios
-      .post('/signup', userInputObj)
+      .post('/user/signup', userInputObj)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
