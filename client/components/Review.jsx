@@ -7,9 +7,9 @@ function Review(props) {
   // console.log( username, rating, review) 
   return (
     <div className = 'review'>
-      <div>{username}</div>
-      <div>{rating}</div>
-      <div>{review}</div>
+      <div id = 'reviewUsername'>{username}</div>
+      <div id = 'reviewRating'>{rating}</div>
+      <div id = 'reviewDescription'>{review}</div>
     </div>
   )
 }
