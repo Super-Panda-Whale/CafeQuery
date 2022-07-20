@@ -1,28 +1,19 @@
 // moved to containers section, per definition this will be the stateful component passing props to the components - Lyam
-//import { connect } from 'react-redux';
 import React, { useState } from 'react';
 import axios from 'axios';
 import WorkspaceContainer from './WorkspaceContainer.jsx';
-//import * as actions from '../actions';
 import searchIcon from '../assets/search.png';
 
 const HomePage = () => {
-  // removing this functionality to go into our workspace endpoint
-
   const [zipcode, setZipcode] = useState('');
   const [workspaces, setWorkspaces] = useState('');
 
-  // // let locationsLoaded = false;
-
-  // // hanles event of clicking button for zip code search
   const handleZipcodeSearch = () => {
-
     axios
       .get(`/workspace?zipcode=${zipcode}`) // should be a POST request??
       .then((res) => {
         console.log(res);
         setWorkspaces(res.data);
-        // locationsLoaded = true;
       })
       .catch((error) => {
         console.error(
