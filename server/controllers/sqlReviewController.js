@@ -36,7 +36,7 @@ sqlReviewController.createReview = async function (req, res, next) {
     });
   }
 };
-// middleware to get
+// middleware to get one review by review id
 sqlReviewController.getReviewsForOne = async function (req, res, next) {
   const { id } = req.query;
   const queryString = `SELECT * FROM reviews WHERE reviewid = ${id}`;
