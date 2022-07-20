@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  
   mode: process.env.NODE_ENV,
 
   entry: './client/index.js',
@@ -48,7 +47,7 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-             options: {
+            options: {
               importLoaders: 1,
               modules: true,
             },
@@ -65,6 +64,7 @@ module.exports = {
     },
     proxy: {
       '/user': 'http://localhost:3000',
+      '/reviews': 'http://localhost:3000',
       '/workspace': 'http://localhost:3000',
     },
   },

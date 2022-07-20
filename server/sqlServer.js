@@ -3,7 +3,8 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 const sqlWorkspaceRouter = require('./routes/sqlWorkspaceRouter');
-// const sqlUserRouter = require('./routes/sqlUserRouter');
+const sqlReviewRouter = require('./routes/sqlReviewRouter');
+
 const cors = require('cors');
 
 //parse incoming requests for json
@@ -15,9 +16,12 @@ app.use(express.urlencoded({ extended: true }));
 //     origin: 'http://localhost:8080',
 //   })
 // );
+
 //route to corect routes based on url endpoints
-// app.use('/user', sqlUserRouter);
+app.use('/reviews', sqlReviewRouter);
 app.use('/workspace', sqlWorkspaceRouter);
+// app.use('/reviews', reviewRouter);
+// app.use('/reviews', sqlReviewRouter);
 
 //unknown route handler
 app.use((req, res) => res.sendStatus(404));

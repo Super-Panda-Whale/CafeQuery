@@ -27,21 +27,21 @@ const AddWorkspace = () => {
     event.preventDefault();
 
     const inputObj = {
-      'workspaceName': name,
-      'zipcode': zipCode,
-      'address': address,
-      'wifi': wifi,
-      'type': type,
-      'quiet': noise,
-      'outlets': outlets,
-      'timeLimit': time,
-      'laptopRestrictions': laptopChecked,
-      'crowded': busy,
-      'outdoorSeating': outdoorChecked,
-      'petFriendly': petChecked,
-      'url': url,
-      'seating': seating,
-      'other': additional
+      workspaceName: name,
+      zipcode: zipCode,
+      address: address,
+      wifi: wifi,
+      type: type,
+      quiet: noise,
+      outlets: outlets,
+      timeLimit: time,
+      laptopRestrictions: laptopChecked,
+      crowded: busy,
+      outdoorSeating: outdoorChecked,
+      petFriendly: petChecked,
+      url: url,
+      seating: seating,
+      other: additional,
     };
 
     // TODO: edge cases to check if required fields aren't entered
@@ -50,31 +50,34 @@ const AddWorkspace = () => {
     }
 
     // send POST request to server with new workspace info in body
-    axios.post('/workspace', inputObj)
-      .then(res => {
+    axios
+      .post('/workspace', inputObj)
+      .then((res) => {
         // panda whale - need something to respond so we know it successfully posted
         console.log(res);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
-      })
-  }
-  
+      });
+  };
+
   return (
     <>
-      <h6>Add a Workspace!</h6>
+      <h7>Add a Review for a Workspace</h7>
       <div className='review'>
         <form className='location_submission'>
           <input
             type='text'
             placeholder='Name'
             value={name}
-            onChange={(e) => setName(e.target.value)} />
+            onChange={(e) => setName(e.target.value)}
+          />
           <input
             type='text'
             placeholder='Street address'
             value={address}
-            onChange={(e) => setAddress(e.target.value)}/>
+            onChange={(e) => setAddress(e.target.value)}
+          />
           <input
             type='text'
             placeholder='Zip code'
@@ -82,103 +85,142 @@ const AddWorkspace = () => {
             onChange={(e) => setZipCode(e.target.value)}
           />
           <label>
-              Wifi:
-              <select 
-              value={wifi}
-              onChange={(e) => setWifi(e.target.value)}>
+            Overall Rating:
+            <select
+              value={overallRating}
+              onChange={(e) => setRating(e.target.value)}
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+          </label>
+          <label>
+            Wifi:
+            <select value={wifi} onChange={(e) => setWifi(e.target.value)}>
               <option value='Fast'>High speed and reliable</option>
               <option value='Moderate'>Moderate speed and reliable</option>
               <option value='Slow'>Slow and spotty</option>
               <option value='None'>Not available</option>
-              </select>
+            </select>
           </label>
           <label>
-              Type:
-              <select 
-              value={type}
-              onChange={(e) => setType(e.target.value)}>
+            Type:
+            <select value={type} onChange={(e) => setType(e.target.value)}>
               <option value='Cafe'>Cafe</option>
               <option value='Bar'>Bar</option>
               <option value='Restaurant'>Restaurant</option>
-              </select>
+            </select>
           </label>
           <label>
-          Noise level:
-              <select 
-              value={noise}
-              onChange={(e) => setNoise(e.target.value)}>
+            Noise level:
+            <select value={noise} onChange={(e) => setNoise(e.target.value)}>
               <option value='Quiet'>Quiet</option>
               <option value='Moderate'>Moderate</option>
               <option value='Loud'>Loud</option>
-              </select>
+            </select>
           </label>
           <label>
-          Outlets:
-              <select 
+            Outlets:
+            <select
               value={outlets}
-              onChange={(e) => setOutlets(e.target.value)}>
+              onChange={(e) => setOutlets(e.target.value)}
+            >
               <option value='Many'>Many and accessible</option>
               <option value='Medium'>Medium</option>
               <option value='Few'>Few</option>
-              </select>
+            </select>
           </label>
           <label>
-          Laptop restrictions:
-              <input type="checkbox"
+            Laptop restrictions:
+            <input
+              type='checkbox'
               checked={laptopChecked}
               onChange={(e) => setLaptop(e.target.checked)}
-              />
+            />
           </label>
           <label>
-          Busy:
-              <select 
-              value={busy}
-              onChange={(e) => setBusy(e.target.value)}>
+            Busy:
+            <select value={busy} onChange={(e) => setBusy(e.target.value)}>
               <option value='Very'>Very busy</option>
               <option value='Moderate'>Moderately busy </option>
               <option value='Slow'>Slow</option>
-              </select>
+            </select>
           </label>
           <label>
-          Outdoor seating:
-              <input type="checkbox"
+            Outdoor seating:
+            <input
+              type='checkbox'
               checked={outdoorChecked}
               onChange={(e) => setOutdoor(e.target.checked)}
-              />
+            />
           </label>
           <label>
-          Pet friendly:
-              <input type="checkbox"
+            Pet friendly:
+            <input
+              type='checkbox'
               checked={petChecked}
               onChange={(e) => setPetFriendly(e.target.checked)}
-              />
+            />
           </label>
           <input
             type='URL'
             placeholder='Website'
             value={url}
-            onChange={(e) => setUrlAddress(e.target.value)} />
+            onChange={(e) => setUrlAddress(e.target.value)}
+          />
           <label>
-          Seating:
-              <select 
+            Food Rating:
+            <select
+              value={foodRating}
+              onChange={(e) => setFood(e.target.value)}
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+          </label>
+          <label>
+            Coffee Rating:
+            <select
+              value={coffeeRating}
+              onChange={(e) => setCoffee(e.target.value)}
+            >
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+          </label>
+          <label>
+            Seating:
+            <select
               value={seating}
-              onChange={(e) => setSeating(e.target.value)}>
+              onChange={(e) => setSeating(e.target.value)}
+            >
               <option value='Small'>0 - 10</option>
               <option value='Medium'>10 - 25 </option>
               <option value='Large'>25 - 40</option>
-              </select>
+            </select>
           </label>
           <input
             type='Additional'
             placeholder='Other'
             value={additional}
-            onChange={(e) => setAdditional(e.target.value)} />
-
-          <button onClick={handleAddSpace} type='submit' className='submit_btn'>Submit</button>
+            onChange={(e) => setAdditional(e.target.value)}
+          />
+          <button onClick={handleAddSpace} type='submit' className='submit_btn'>
+            Submit
+          </button>
         </form>
       </div>
-      </>
-    );
+    </>
+  );
 };
 
 export default AddWorkspace;
