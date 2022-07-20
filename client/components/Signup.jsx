@@ -4,7 +4,6 @@ import axios from 'axios';
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [zipcode, setZipcode] = useState('');
 
   // event handler for signup button
   const handleSignup = (event) => {
@@ -14,11 +13,10 @@ const Signup = () => {
     const userInputObj = {
       username: username,
       password: password,
-      zipcode: zipcode,
     };
     // request to server
     axios
-      .post('/user', userInputObj)
+      .post('/signup', userInputObj)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -39,14 +37,8 @@ const Signup = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input
-          type='text'
-          placeholder='Zip Code'
-          value={zipcode}
-          onChange={(e) => setZipcode(e.target.value)}
-        />
         <button onClick={handleSignup} type='submit' className='submit_btn'>
-          Submit
+          Sign up
         </button>
       </form>
     </div>

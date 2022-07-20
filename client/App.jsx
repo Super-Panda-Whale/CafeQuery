@@ -1,50 +1,27 @@
-
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddWorkspace from './components/addWorkspace.jsx';
-import WorkspaceContainer from './containers/WorkspaceContainer.jsx';
 import HomePage from './containers/HomePage.jsx';
 import Login from './components/Login.jsx';
-// import Signup from './components/Signup.jsx';
-import { Navbar, Nav} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap'
-import option1 from './assets/option1.png';
+import Signup from './components/Signup.jsx';
+import NavBar from './containers/NavBarContainer.jsx'
 
 function App()  {
   return (
-    <>
-      <Router>        
-        <Navbar className="navbar" expand="lg">
-          <img src={option1} className="icon" alt=""/>
-          <LinkContainer to="/">
-              <Navbar.Brand>CafeQuery</Navbar.Brand>
-          </LinkContainer>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="homepage">
-          <LinkContainer to="/">
-              <Nav.Link>Find A Location</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/add">
-              <Nav.Link>Add a Location</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to="/logIn">
-              <Nav.Link>Log In/Sign Up</Nav.Link>
-          </LinkContainer>   
-          </Nav>
-          </Navbar.Collapse>
-          </Navbar>
-
+    <div className="App">
+      <BrowserRouter>        
+          <NavBar />
           <Routes>
-          <Route path='/' element={<App />}></Route>
+              <Route path='/' element={<App />}></Route>
               <Route index element ={<HomePage />}></Route>
               <Route path='/add' element ={<AddWorkspace />}></Route>
               <Route path='/login' element ={<Login />}></Route>
+              <Route path='/signup' element = {<Signup />}></Route>
           </Routes>
-      </Router>
-    </>
+      </BrowserRouter>
+    </div>
   );
 }
 
@@ -57,6 +34,7 @@ function App()  {
       clicking on a review shows a single review for that workspace
     - shows all locations for a zipcode
       clicking on a location shows a single workspace
+    - login & signup & logout (check for redirects too)
 */
 
 export default App;
