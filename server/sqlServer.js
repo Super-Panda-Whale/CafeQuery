@@ -4,6 +4,7 @@ const app = express();
 const PORT = 3000;
 const sqlWorkspaceRouter = require('./routes/sqlWorkspaceRouter');
 const sqlReviewRouter = require('./routes/sqlReviewRouter');
+const sqlUserRouter = require('./routes/sqlUserRouter');
 
 const cors = require('cors');
 
@@ -20,8 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 //route to corect routes based on url endpoints
 app.use('/reviews', sqlReviewRouter);
 app.use('/workspace', sqlWorkspaceRouter);
-// app.use('/reviews', reviewRouter);
-// app.use('/reviews', sqlReviewRouter);
+app.use('/user', sqlUserRouter);
 
 //unknown route handler
 app.use((req, res) => res.sendStatus(404));

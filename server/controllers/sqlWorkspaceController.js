@@ -49,7 +49,6 @@ sqlWorkspaceController.createWorkspace = async function (req, res, next) {
     workspaceName,
     zipcode,
     address,
-    rating,
     wifi,
     type,
     quiet,
@@ -59,14 +58,12 @@ sqlWorkspaceController.createWorkspace = async function (req, res, next) {
     outdoorSeating,
     petFriendly,
     url,
-    foodRating,
-    coffeeRating,
     seating,
     other,
   } = req.body;
   const queryString = `
     INSERT INTO workspaces(WorkspaceName, Zipcode, Address, Rating, Wifi, Type, Quiet, Outlets, LaptopRestrictions, Crowded, OutdoorSeating, PetFriendly, URL, FoodRating, CoffeeRating, Seating, Other)
-    VALUES('${workspaceName}', '${zipcode}', '${address}', '${rating}', '${wifi}', '${type}', '${quiet}', '${outlets}', '${laptopRestrictions}', '${crowded}', '${outdoorSeating}', '${petFriendly}', '${url}', '${foodRating}', '${coffeeRating}', '${seating}', '${other}') RETURNING *`;
+    VALUES('${workspaceName}', '${zipcode}', '${address}', '${wifi}', '${type}', '${quiet}', '${outlets}', '${laptopRestrictions}', '${crowded}', '${outdoorSeating}', '${petFriendly}', '${url}', '${seating}', '${other}') RETURNING *`;
   try {
     const result = await sqlDB.query(queryString);
     //send back the new workspace through res.locals
