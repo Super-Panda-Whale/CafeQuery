@@ -4,14 +4,15 @@ import Reviews from './Reviews.jsx';
 const Workspace = (props) => {
   //display information received in the result body 
   //from the databse query to locations
-  const { workspaceName, address, rating, wifi, type, quiet, outlets, timeLimit, laptopRestrictions, crowded,
-  outdoorSeating, petFriendly, foodRating, coffeeRating, seating, workspaceid } = props.resultObject;
+  const { workspaceName, address, wifi, type, quiet, outlets, timeLimit, laptopRestrictions, crowded,
+  outdoorSeating, petFriendly, seating, workspaceid } = props.resultObject;
 
   // making a fetch to workspace/id - redirect or popup to review container?
   const handleWorkspaceView = async () => {
     console.log('handleWorkspaceView Clicked');
     try {
-      const response = await fetch(`/workspace/id/${workspaceid}`)
+      // workspace/:id
+      const response = await fetch(`/workspace/${workspaceid}`)
       const data = await response.json();
       console.log('Data received from workspace: ', data)
     } catch (err) {
@@ -33,7 +34,6 @@ const Workspace = (props) => {
       <div onClick={handleWorkspaceView} className="LocationDisplay">
         <h4>Name: {workspaceName}</h4> <br></br>
         <h4>Address: {address}</h4><br></br>
-        <h4>Overall Rating: {rating}</h4><br></br>
         <h4>Wifi: {wifi}</h4><br></br>
         <h4>Type: {type}</h4><br></br>
         <h4>Noise level: {quiet}</h4><br></br>
@@ -43,8 +43,6 @@ const Workspace = (props) => {
         <h4>Busy: {crowded}</h4><br></br>
         <h4>Outdoor Seating: {outdoorSeating}</h4><br></br>
         <h4>Pet friendly: {petFriendly}</h4><br></br>
-        <h4>Food rating: {foodRating}</h4><br></br>
-        <h4>Coffee rating: {coffeeRating}</h4><br></br>
         <h4>Seating: {seating}</h4><br></br>
         <Reviews reviews={reviewsData}/>
       </div>

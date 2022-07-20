@@ -42,19 +42,21 @@ function App()  {
               <Route index element ={<HomePage />}></Route>
               <Route path='/add' element ={<AddWorkspace />}></Route>
               <Route path='/login' element ={<Login />}></Route>
-
-              {/* 
-                Reviews implementation
-
-              - Given no display endpoint, we will now display all workspaces 
-                within a zipcode in our workspace endpoint
-              <Route path='/workspaces' element ={<WorkspaceContainer />}></Route>
-              */}
           </Routes>
       </Router>
     </>
   );
 }
 
+/* 
+  User Stories
+  TO TEST:
+    - adds a location
+    - adds reviews
+      shows all reviews for a workspace
+      clicking on a review shows a single review for that workspace
+    - shows all locations for a zipcode
+      clicking on a location shows a single workspace
+*/
 
 export default App;

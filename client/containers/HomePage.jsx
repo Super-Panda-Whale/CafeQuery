@@ -16,15 +16,17 @@ const HomePage = () => {
 
   // // hanles event of clicking button for zip code search
   const handleZipcodeSearch = () => {
-    // event.preventDefault();
-    axios.get(`/workspace/${zipcode}`) // should be a POST request??
-    .then((res) => {
-      setWorkspaces(res.data)
-      // locationsLoaded = true;
-    })
-    .catch((error) => {
-      console.error(`Couldn\'t fetch workspaces handleZipcodeSearch in HomePage, error: ${error}`);
-    });
+    console.log({zipcode})
+    axios.get(`/workspace?zipcode=${zipcode}`) // should be a POST request??
+      .then((res) => {
+        console.log('res.data: ', res.data)
+        setWorkspaces(res.data)
+        console.log('workspaces in home: ', workspaces)
+        // locationsLoaded = true;
+      })
+      .catch((error) => {
+        console.error(`Couldn\'t fetch workspaces handleZipcodeSearch in HomePage, error: ${error}`);
+      });
   }
 
   return (

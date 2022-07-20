@@ -4,7 +4,7 @@ import Review from './Review.jsx';
 const Reviews = ({reviews}) => {
   const reviewArr = [];
   for (let i = 0; i < reviews.length; i++) {
-    reviewArr.push(<Review review = {reviews[i]} key = {i} />)
+    reviewArr.push(<Review review = {reviews[i]} key = {`review ${i}`} />)
   }
   
   return (
