@@ -9,17 +9,17 @@ import searchIcon from '../assets/search.png';
 const HomePage = () => {
   // removing this functionality to go into our workspace endpoint
 
-  const [search, setSearch] = useState('');
-  const [locations, setLocations] = useState('');
+  const [zipcode, setZipcode] = useState('');
+  const [workspaces, setWorkspaces] = useState('');
 
   // // let locationsLoaded = false;
 
   // // hanles event of clicking button for zip code search
   const handleZipcodeSearch = () => {
     // event.preventDefault();
-    axios.get(`/workspace/${search}`) // should be a POST request??
+    axios.get(`/workspace/${zipcode}`) // should be a POST request??
     .then((res) => {
-      setLocations(res.data)
+      setWorkspaces(res.data)
       // locationsLoaded = true;
     })
     .catch((error) => {
@@ -30,7 +30,7 @@ const HomePage = () => {
   return (
     <>
       <div className="searchForm">
-        <input type="text" placeholder="Search for a cafe or zipcode..." className="search-field" onChange={(e) => setSearch(e.target.value)}/>
+        <input type="text" placeholder="Search for a cafe or zipcode..." className="search-field" onChange={(e) => setZipcode(e.target.value)}/>
         <button onClick={handleZipcodeSearch} type="submit" className="search-button">
         <img src = {searchIcon}/>
         </button>
@@ -41,7 +41,7 @@ const HomePage = () => {
       </div>
 
       {/* removing this to place into workspace endpoint */}
-      <WorkspaceContainer workspaces={locations}/>
+      <WorkspaceContainer workspaces={workspaces}/>
     </>
   );
 }

@@ -11,7 +11,6 @@ const userRouter = require('./routes/userRouter');
 const workspaceRouter = require('./routes/workspaceRouter');
 
 const PORT = 3000;
-const mongoURI = "mongodb+srv://walle:test123@cluster0.qiqrcbz.mongodb.net/?retryWrites=true&w=majority";
 
 // Connect to MongoDB 
 mongoose.connect(mongoURI, {
