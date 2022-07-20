@@ -23,6 +23,25 @@ sqlWorkspaceController.getWorkspace = async function (req, res, next) {
   }
 };
 
+//middleware to get a specific workspace by ID
+sqlWorkspaceController.getOneWorkspace = async function (req, res, next) {
+  const { workspaceid } = req.params;
+  const queryString = `SELECT * FROM workspaces WHERE workspaceid = ${workspaceid}`;
+  try {
+    const workspace = await sqlDB.query(queryString);
+    //send through res.locals the retrieved workspace
+    res.locals.workspace = workspace.rows;
+    return next();
+  } catch (err) {
+    console.log(err);
+    next({
+      log: err + ' error in the getOneWorkspace Middleware',
+      status: 404,
+      message: { err: 'You have a stupid error: ', err },
+    });
+  }
+};
+
 //middleware to create a new workspace
 sqlWorkspaceController.createWorkspace = async function (req, res, next) {
   //destructure from request body all relevant information to create a new workspace

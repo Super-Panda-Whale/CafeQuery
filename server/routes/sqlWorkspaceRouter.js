@@ -8,6 +8,15 @@ router.get('/', sqlWorkSpaceController.getWorkspace, (req, res) => {
   return res.status(200).json(res.locals.workspaces);
 });
 
+//handles get requests for a single workspace by ID
+router.get(
+  '/id/:workspaceid',
+  sqlWorkSpaceController.getOneWorkspace,
+  (req, res) => {
+    return res.status(200).json(res.locals.workspace);
+  }
+);
+
 //post requests to / route are handled by createWorkspace middleware
 router.post('/', sqlWorkSpaceController.createWorkspace, (req, res) => {
   //send back the new workspace
