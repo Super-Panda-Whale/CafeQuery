@@ -16,7 +16,7 @@ const HomePage = () => {
 
   // // hanles event of clicking button for zip code search
   const handleZipcodeSearch = () => {
-    // event.preventDefault();
+
     axios
       .get(`/workspace?zipcode=${zipcode}`) // should be a POST request??
       .then((res) => {

@@ -30,7 +30,6 @@ const AddWorkspace = () => {
       'workspaceName': name,
       'zipcode': zipCode,
       'address': address,
-      'rating': overallRating,
       'wifi': wifi,
       'type': type,
       'quiet': noise,
@@ -41,8 +40,6 @@ const AddWorkspace = () => {
       'outdoorSeating': outdoorChecked,
       'petFriendly': petChecked,
       'url': url,
-      'foodRating': foodRating,
-      'coffeeRating': coffeeRating,
       'seating': seating,
       'other': additional
     };
@@ -65,7 +62,7 @@ const AddWorkspace = () => {
   
   return (
     <>
-      <h7>Add a Review for a Workspace</h7>
+      <h6>Add a Workspace!</h6>
       <div className='review'>
         <form className='location_submission'>
           <input
@@ -84,18 +81,6 @@ const AddWorkspace = () => {
             value={zipCode}
             onChange={(e) => setZipCode(e.target.value)}
           />
-          <label>
-              Overall Rating:
-              <select 
-              value={overallRating}
-              onChange={(e) => setRating(e.target.value)}>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option> 
-              </select>
-          </label>
           <label>
               Wifi:
               <select 
@@ -173,30 +158,6 @@ const AddWorkspace = () => {
             placeholder='Website'
             value={url}
             onChange={(e) => setUrlAddress(e.target.value)} />
-            <label>
-              Food Rating:
-              <select 
-              value={foodRating}
-              onChange={(e) => setFood(e.target.value)}>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>  
-              </select>
-          </label>
-          <label>
-              Coffee Rating:
-              <select 
-              value={coffeeRating}
-              onChange={(e) => setCoffee(e.target.value)}>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>  
-              </select>
-          </label>
           <label>
           Seating:
               <select 
@@ -212,9 +173,8 @@ const AddWorkspace = () => {
             placeholder='Other'
             value={additional}
             onChange={(e) => setAdditional(e.target.value)} />
-          <button onClick={handleAddSpace} type='submit' className='submit_btn'>
-              Submit
-          </button>
+
+          <button onClick={handleAddSpace} type='submit' className='submit_btn'>Submit</button>
         </form>
       </div>
       </>

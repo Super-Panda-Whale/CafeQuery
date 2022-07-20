@@ -5,6 +5,8 @@ import Workspace from '../components/Workspace.jsx';
 const WorkspaceContainer = (props) => {
   const { workspaces } = props;
 
+  console.log('workspaces ', workspaces)
+
   const locationArray = []; 
   for (let i = 0; i < workspaces.length; i++){
     //pass in response body into as props to display spaces
