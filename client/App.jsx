@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddSpaceReview from './components/AddSpaceReview.jsx';
+import AddWorkspace from './components/addWorkspace.jsx';
 import WorkspaceContainer from './containers/WorkspaceContainer.jsx';
 import HomePage from './containers/HomePage.jsx';
 import Login from './components/Login.jsx';
@@ -40,7 +40,7 @@ function App()  {
           <Routes>
           <Route path='/' element={<App />}></Route>
               <Route index element ={<HomePage />}></Route>
-              <Route path='/add' element ={<AddSpaceReview />}></Route>
+              <Route path='/add' element ={<AddWorkspace />}></Route>
               <Route path='/login' element ={<Login />}></Route>
 
               {/* 
