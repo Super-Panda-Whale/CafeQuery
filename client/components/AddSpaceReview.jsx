@@ -55,6 +55,7 @@ const addSpaceReview = () => {
     // send POST request to server with new workspace info in body
     axios.post('/workspace', inputObj)
       .then(res => {
+        // panda whale - need something to respond so we know it successfully posted
         console.log(res);
       })
       .catch(err => {
@@ -88,11 +89,11 @@ const addSpaceReview = () => {
               <select 
               value={rating}
               onChange={(e) => setRating(e.target.value)}>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option> 
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option> 
               </select>
           </label>
           <label>
@@ -137,16 +138,6 @@ const addSpaceReview = () => {
               </select>
           </label>
           <label>
-          Time Limit:
-              <select 
-              value={time}
-              onChange={(e) => setTime(e.target.value)}>
-              <option value='None'>No time limit</option>
-              <option value='1'>One hour </option>
-              <option value='2'>Two hours </option>
-              </select>
-          </label>
-          <label>
           Laptop restrictions:
               <input type="checkbox"
               checked={laptopChecked}
@@ -187,11 +178,11 @@ const addSpaceReview = () => {
               <select 
               value={food}
               onChange={(e) => setFood(e.target.value)}>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>  
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>  
               </select>
           </label>
           <label>
@@ -199,11 +190,11 @@ const addSpaceReview = () => {
               <select 
               value={coffee}
               onChange={(e) => setCoffee(e.target.value)}>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4'>4</option>
-              <option value='5'>5</option>  
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>  
               </select>
           </label>
           <label>
@@ -228,15 +219,6 @@ const addSpaceReview = () => {
       </div>
       </>
     );
-  };
-//submit post to db on submit
+};
+
 export default addSpaceReview;
-
-  
-
-  
-
-
- 
-  
- 
