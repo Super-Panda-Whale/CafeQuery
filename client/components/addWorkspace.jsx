@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const addSpaceReview = () => {
+const AddWorkspace = () => {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [zipCode, setZipCode] = useState('');
-  const [rating, setRating] = useState('');
+  const [overallRating, setRating] = useState('');
   const [wifi, setWifi] = useState('');
   const [type, setType] = useState('');
   const [noise, setNoise] = useState('');
@@ -16,8 +16,8 @@ const addSpaceReview = () => {
   const [outdoorChecked, setOutdoor] = useState(false);
   const [petChecked, setPetFriendly] = useState(false);
   const [url, setUrlAddress] = useState('');
-  const [food, setFood] = useState('');
-  const [coffee, setCoffee] = useState('');
+  const [foodRating, setFood] = useState('');
+  const [coffeeRating, setCoffee] = useState('');
   const [seating, setSeating] = useState('');
   const [additional, setAdditional] = useState('');
 
@@ -30,7 +30,7 @@ const addSpaceReview = () => {
       'workspaceName': name,
       'zipcode': zipCode,
       'address': address,
-      'rating': rating,
+      'rating': overallRating,
       'wifi': wifi,
       'type': type,
       'quiet': noise,
@@ -41,8 +41,8 @@ const addSpaceReview = () => {
       'outdoorSeating': outdoorChecked,
       'petFriendly': petChecked,
       'url': url,
-      'foodRating': coffee,
-      'coffeeRating': food,
+      'foodRating': foodRating,
+      'coffeeRating': coffeeRating,
       'seating': seating,
       'other': additional
     };
@@ -87,7 +87,7 @@ const addSpaceReview = () => {
           <label>
               Overall Rating:
               <select 
-              value={rating}
+              value={overallRating}
               onChange={(e) => setRating(e.target.value)}>
               <option value={1}>1</option>
               <option value={2}>2</option>
@@ -176,7 +176,7 @@ const addSpaceReview = () => {
             <label>
               Food Rating:
               <select 
-              value={food}
+              value={foodRating}
               onChange={(e) => setFood(e.target.value)}>
               <option value={1}>1</option>
               <option value={2}>2</option>
@@ -188,7 +188,7 @@ const addSpaceReview = () => {
           <label>
               Coffee Rating:
               <select 
-              value={coffee}
+              value={coffeeRating}
               onChange={(e) => setCoffee(e.target.value)}>
               <option value={1}>1</option>
               <option value={2}>2</option>
@@ -221,4 +221,4 @@ const addSpaceReview = () => {
     );
 };
 
-export default addSpaceReview;
+export default AddWorkspace;
