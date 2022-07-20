@@ -3,13 +3,12 @@ import Review from './Review.jsx';
 
 const Reviews = ({reviews}) => {
   const reviewArr = [];
-  for (let i = 0; i < 5; i++) {
-    reviewArr.push(<p>test review</p>)
-    // <Review review = {reviews[i]}
+  for (let i = 0; i < reviews.length; i++) {
+    reviewArr.push(<Review review = {reviews[i]} />)
   }
   
   return (
-    <div classname = 'reviews'>
+    <div className = 'reviews'>
       {reviewArr}
     </div>
   )

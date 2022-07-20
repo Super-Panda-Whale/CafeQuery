@@ -23,7 +23,7 @@ const Login = () => {
     };
     
     // should be a POST to endpoint to check SQL server if username exists
-    axios.post(`/login`, loginObj)
+    axios.post(`/user/login`, loginObj)
       .then((data) => {
         console.log(data);
       })
