@@ -3,40 +3,29 @@ const sqlDB = require('../models/sqlModels.js');
 
 const sqlWorkspaceController = {};
 
-<<<<<<< HEAD
+//middleware to get all workspaces by zipcode
 sqlWorkspaceController.getWorkspace = async function (req, res, next) {
-  console.log(' in get workspaces midware!!!!');
-  const { zipcode } = req.params;
+  //destructure zipcode from query string
+  const { zipcode } = req.query;
   const queryString = `SELECT * FROM workspaces WHERE zipcode = ${zipcode}`;
   try {
     const workspaces = await sqlDB.query(queryString);
+    //send through res.locals all relevant workspaces
     res.locals.workspaces = workspaces.rows;
     return next();
   } catch (err) {
     console.log(err);
-    next(err);
+    next({
+      log: err + ' error in the getWorkspace Middleware',
+      status: 404,
+      message: { err: 'You have a stupid error: ', err },
+    });
   }
 };
 
-=======
-//middleware to get specific workspaces by zip code
-sqlWorkspaceController.getWorkspace = async function(req, res, next){
-    console.log(' in get workspaces midware!!!!');
-    const { zipcode } = req.params;
-    const queryString = `SELECT * FROM workspaces WHERE zipcode = ${zipcode}`
-    try{
-      const workspaces = await sqlDB.query(queryString);
-      res.locals.workspaces = workspaces.rows;
-      return next();
-    }catch(err){
-      console.log(err);
-      next(err);
-    }
-}
-
-//Middleware to create workspace
->>>>>>> development
+//middleware to create a new workspace
 sqlWorkspaceController.createWorkspace = async function (req, res, next) {
+  //destructure from request body all relevant information to create a new workspace
   const {
     workspaceName,
     zipcode,
@@ -57,15 +46,11 @@ sqlWorkspaceController.createWorkspace = async function (req, res, next) {
     other,
   } = req.body;
   const queryString = `
-<<<<<<< HEAD
-    INSERT INTO workspaces(WorkspaceName, Zipcode, Address, Rating, Wifi, Type, Quiet, Outlets, TimeLimit, LaptopRestrictions, Crowded, OutdoorSeating, PetFriendly, URL, FoodRating, CoffeeRating, Seating, Other)
-    VALUES('${workspaceName}', '${zipcode}', '${address}', '${rating}', '${wifi}', '${type}', '${quiet}', '${outlets}', '${timeLimit}', '${laptopRestrictions}', '${crowded}', '${outdoorSeating}', '${petFriendly}', '${url}', '${foodRating}', '${coffeeRating}', '${seating}', '${other}') RETURNING *`;
-=======
     INSERT INTO workspaces(WorkspaceName, Zipcode, Address, Rating, Wifi, Type, Quiet, Outlets, LaptopRestrictions, Crowded, OutdoorSeating, PetFriendly, URL, FoodRating, CoffeeRating, Seating, Other)
     VALUES('${workspaceName}', '${zipcode}', '${address}', '${rating}', '${wifi}', '${type}', '${quiet}', '${outlets}', '${laptopRestrictions}', '${crowded}', '${outdoorSeating}', '${petFriendly}', '${url}', '${foodRating}', '${coffeeRating}', '${seating}', '${other}') RETURNING *`;
->>>>>>> development
   try {
     const result = await sqlDB.query(queryString);
+    //send back the new workspace through res.locals
     res.locals.newWorkspace = result.rows;
     return next();
   } catch (err) {
