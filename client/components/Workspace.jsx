@@ -58,13 +58,13 @@ const Workspace = (props) => {
         <h4>Outdoor Seating: {outdoorSeating}</h4><br></br>
         <h4>Pet friendly: {petFriendly}</h4><br></br>
         <h4>Seating: {seating}</h4><br></br>
-        <button onClick={() =>  setIsClicked(!isClicked)}>Add a review</button>
+        <button  className = 'btn-33' onClick={() =>  setIsClicked(!isClicked)}><span>Add a review</span><span class="marquee" aria-hidden>Add a review</span></button>
         { isClicked && <AddReview workspaceid={workspaceid} /> }
-        <button onClick={handleWorkspaceView}>View workspace</button>
-        <button onClick={() => {
+        <button className = 'btn-33' onClick={handleWorkspaceView}><span>View</span><span class="marquee" aria-hidden>View</span></button>
+        <button  className = 'btn-33' onClick={() => {
           getReviews();
           setReviewClicked(!reviewClicked);
-        }}>Get Reviews</button>
+        }}><span>Get Reviews</span> <span class="marquee" aria-hidden>Get Reviews</span></button>
         { reviewClicked && <Reviews reviews={reviews} /> } 
       </div>
     </>
