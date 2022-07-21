@@ -129,6 +129,25 @@ h7{
   font-size: 40px;
 }
 
+<<<<<<< HEAD
+.reviews {
+  .review {
+    display: grid;
+    grid-template-areas: "username rating"
+                         "review review";
+
+    .reviewUsername {
+      grid-area: username;
+    }
+
+    .reviewRating {
+      grid-area: rating;
+    }
+
+    .reviewDescription {
+      grid-area: review;
+    }
+=======
 .btn-87,
 .btn-87 *,
 .btn-87 :after,
@@ -373,5 +392,6 @@ h7{
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 #fff;
+>>>>>>> fb4f54f82d0628f0b4f3acf42ef3a0bbcdb50dfd
   }
 }

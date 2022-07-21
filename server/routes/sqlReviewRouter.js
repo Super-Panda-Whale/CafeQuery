@@ -5,6 +5,7 @@ const router = express.Router();
 router.get('/', sqlReviewController.getReviewsForOne, (req, res) => {
   return res.status(200).json(res.locals.review);
 });
+
 //create route to handle get requests, use getReviews middleware to get all reviews for a particular id
 router.get('/:workspaceid', sqlReviewController.getReviews, (req, res) => {
   return res.status(200).json(res.locals.reviews);

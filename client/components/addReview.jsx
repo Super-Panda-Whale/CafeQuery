@@ -21,9 +21,9 @@ function AddReview({workspaceid}) {
     // TODO: edge cases to check if required fields aren't entered
     if (username === '') {
       alert('Please enter a valid name.');
-    }
+    };
 
-    console.log('handleAddReview', inputObj)
+    console.log('handleAddReview', inputObj);
 
     // send POST request to server with new workspace info in body
     axios.post(`/reviews/${workspaceid}`, inputObj)
@@ -33,8 +33,8 @@ function AddReview({workspaceid}) {
       })
       .catch(err => {
         console.log(err);
-      })
-  }
+      });
+  };
 
   return (
     <div className='review'>
