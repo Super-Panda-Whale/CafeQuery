@@ -1,4 +1,4 @@
-$primary-color: white;
+$primary-color: rgb(223, 133, 133);
 $bg: black;
 $peach: #f6d78d;
 
@@ -6,7 +6,46 @@ $peach: #f6d78d;
 
 h1 {
   color: $primary-color;
-  background-color: $bg;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+::-webkit-scrollbar {
+  width: .5vw;
+  background-color: transparent;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 1px #e65100;
+  background-color: #ffb74d;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #faa627;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: #cecece;
+}
+
+
+
+.submit_btn1 {
+  position: fixed;
+  left: 30%;
+  top: 10%;
+}
+
+.signup {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar {
@@ -20,6 +59,9 @@ h1 {
 
 body {
   background-image: url('../assets/background.jpg');
+  // background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .searchContainer {
@@ -95,6 +137,15 @@ h4{
   font-size: 20px;
 }
 
+.location_submission{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input {
+    max-width: 75%;
+  }
+}
+
 .workspace {
   color: white;
   border: 1px solid white;
@@ -129,25 +180,6 @@ h7{
   font-size: 40px;
 }
 
-<<<<<<< HEAD
-.reviews {
-  .review {
-    display: grid;
-    grid-template-areas: "username rating"
-                         "review review";
-
-    .reviewUsername {
-      grid-area: username;
-    }
-
-    .reviewRating {
-      grid-area: rating;
-    }
-
-    .reviewDescription {
-      grid-area: review;
-    }
-=======
 .btn-87,
 .btn-87 *,
 .btn-87 :after,
@@ -392,6 +424,5 @@ h7{
 @keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 #fff;
->>>>>>> fb4f54f82d0628f0b4f3acf42ef3a0bbcdb50dfd
   }
 }

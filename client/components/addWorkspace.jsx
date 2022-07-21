@@ -59,9 +59,8 @@ const AddWorkspace = () => {
   };
 
   return (
-    <>
-      <h6>Add a Workspace!</h6>
-      <div className='workspace'>
+    <div className='workspace'>
+      <h2>Add a Workspace!</h2>
         <form className='location_submission'>
           <input placeholder='Workspace Name' value={workspaceName} onChange={(e) => setName(e.target.value)} />
           <input placeholder='Street address' value={address} onChange={(e) => setAddress(e.target.value)} />
@@ -137,14 +136,9 @@ const AddWorkspace = () => {
             </select>
           </label>
           <input type='Additional' placeholder='Other' value={additional} onChange={(e) => setAdditional(e.target.value)} />
-<<<<<<< HEAD
-          <button onClick={handleSubmit} type='submit' className='submit_btn'><span>Submit</span><svg aria-hidden><circle></circle></svg></button>
-=======
           <button onClick={handleSubmit} type='submit' className='btn-87'><span>Submit</span> <svg aria-hidden><circle></circle></svg></button>
->>>>>>> fb4f54f82d0628f0b4f3acf42ef3a0bbcdb50dfd
         </form>
-      </div>
-    </>
+    </div>
   );
 };
 
