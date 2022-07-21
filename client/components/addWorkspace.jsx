@@ -137,7 +137,7 @@ const AddWorkspace = () => {
             </select>
           </label>
           <input type='Additional' placeholder='Other' value={additional} onChange={(e) => setAdditional(e.target.value)} />
-          <button onClick={handleSubmit} type='submit' className='submit_btn'>Submit</button>
+          <button onClick={handleSubmit} type='submit' className='btn-87'><span>Submit</span> <svg aria-hidden><circle></circle></svg></button>
         </form>
       </div>
     </>
