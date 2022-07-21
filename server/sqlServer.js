@@ -1,22 +1,16 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const PORT = 3000;
 const sqlWorkspaceRouter = require('./routes/sqlWorkspaceRouter');
 const sqlReviewRouter = require('./routes/sqlReviewRouter');
 const sqlUserRouter = require('./routes/sqlUserRouter');
 
 const cors = require('cors');
+const PORT = 3000;
 
 //parse incoming requests for json
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// app.use(
-//   cors({
-//     origin: 'http://localhost:8080',
-//   })
-// );
 
 //route to corect routes based on url endpoints
 app.use('/reviews', sqlReviewRouter);
@@ -48,6 +42,9 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(PORT, () => {
+
+app.listen(3000, () => {
   console.log(`Server listening on port: ${PORT}...`);
 });
+
+

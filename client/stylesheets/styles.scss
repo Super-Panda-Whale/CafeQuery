@@ -128,3 +128,23 @@ h7{
   margin-top: 20%;
   font-size: 40px;
 }
+
+.reviews {
+  .review {
+    display: grid;
+    grid-template-areas: "username rating"
+                         "review review";
+
+    .reviewUsername {
+      grid-area: username;
+    }
+
+    .reviewRating {
+      grid-area: rating;
+    }
+
+    .reviewDescription {
+      grid-area: review;
+    }
+  }
+}

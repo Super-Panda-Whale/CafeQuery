@@ -21,7 +21,7 @@ function NavBarContainer() {
         <Nav.Link>Find A Location</Nav.Link>
     </LinkContainer>
     <LinkContainer to="/add">
-        <Nav.Link>Add a Location</Nav.Link>
+        <Nav.Link>Add a Workspace</Nav.Link>
     </LinkContainer>
     <LinkContainer to="/login">
         <Nav.Link id='nav-login'>Log In</Nav.Link>

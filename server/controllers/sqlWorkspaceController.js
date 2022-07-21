@@ -62,7 +62,7 @@ sqlWorkspaceController.createWorkspace = async function (req, res, next) {
     other,
   } = req.body;
   const queryString = `
-    INSERT INTO workspaces(WorkspaceName, Zipcode, Address, Rating, Wifi, Type, Quiet, Outlets, LaptopRestrictions, Crowded, OutdoorSeating, PetFriendly, URL, FoodRating, CoffeeRating, Seating, Other)
+    INSERT INTO workspaces (WorkspaceName, Zipcode, Address, Wifi, Type, Quiet, Outlets, LaptopRestrictions, Crowded, OutdoorSeating, PetFriendly, URL, Seating, Other)
     VALUES('${workspaceName}', '${zipcode}', '${address}', '${wifi}', '${type}', '${quiet}', '${outlets}', '${laptopRestrictions}', '${crowded}', '${outdoorSeating}', '${petFriendly}', '${url}', '${seating}', '${other}') RETURNING *`;
   try {
     const result = await sqlDB.query(queryString);
